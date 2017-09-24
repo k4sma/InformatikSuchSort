@@ -292,7 +292,22 @@ public class GUI {
 		btnSelctionSort.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				//variablen
+				int curr;
 				
+				//algorithmus
+				for (int i = 0; i < meinArray.length - 1; i++) {
+					for (int j = i + 1; j < meinArray.length; j++) {
+						if (meinArray[i] > meinArray[j]) {
+							curr = meinArray[i];
+							meinArray[i] = meinArray[j];
+							meinArray[j] = curr;
+						}
+					}
+				}
+				
+				//array hinzufügen
+				addarray(meinArray);
 				
 			}
 		}); 
@@ -304,8 +319,22 @@ public class GUI {
 		btnInsertionSort.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				
+				//variablen
+				int curr;
 				
+				//algorithmus
+				for (int i = 1; i < meinArray.length; i++) {
+					curr = meinArray[i];
+					int j = i;
+					while (j > 0 && meinArray[j - 1] > curr) {
+						meinArray[j] = meinArray[j - 1];
+						j--;
+					}
+					meinArray[j] = curr;
+				}
 				
+				//array hinzufügen
+				addarray(meinArray);
 			}
 		});
 		btnInsertionSort.setBounds(391, 316, 134, 23);
